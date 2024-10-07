@@ -42,6 +42,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  bool get isEmpty => contador == 0;
+  bool get isFull => contador == 20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,11 +59,19 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "Pode entrar!",
+            Text(
+              isFull
+                  ? "Lotado!"
+                  : isEmpty
+                      ? "Vazio!"
+                      : "Pode entrar!",
               style: TextStyle(
                 fontSize: 50,
-                color: Colors.white,
+                color: isEmpty
+                    ? const Color.fromARGB(255, 5, 55, 131)
+                    : isFull
+                        ? const Color.fromARGB(255, 12, 126, 2)
+                        : Colors.white,
                 fontWeight: FontWeight.w200,
               ),
             ),
@@ -79,9 +90,10 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: decrement,
+                  onPressed: isEmpty ? null : decrement,
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor:
+                        isEmpty ? Colors.white.withOpacity(0.2) : Colors.white,
                     foregroundColor: Colors.black,
                     fixedSize: const Size(100, 100),
                     shape: RoundedRectangleBorder(
@@ -104,9 +116,10 @@ class _HomePageState extends State<HomePage> {
                   width: 32,
                 ),
                 TextButton(
-                  onPressed: increment,
+                  onPressed: isFull ? null : increment,
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor:
+                        isFull ? Colors.white.withOpacity(0.2) : Colors.white,
                     foregroundColor: Colors.black,
                     fixedSize: const Size(100, 100),
                     shape: RoundedRectangleBorder(
