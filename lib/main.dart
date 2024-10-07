@@ -33,83 +33,89 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            "Pode entrar!",
-            style: TextStyle(
-              fontSize: 50,
-              color: Colors.white,
-              fontWeight: FontWeight.w200,
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/tornado.jpeg'),
+            fit: BoxFit.cover,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              "0",
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              "Pode entrar!",
               style: TextStyle(
-                fontSize: 100,
+                fontSize: 50,
                 color: Colors.white,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w200,
               ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: decrement,
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  // padding: const EdgeInsets.all(32),
-                  fixedSize: const Size(100, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    side: const BorderSide(
-                      color: Color(0xff292c2e),
-                      width: 5,
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "0",
+                style: TextStyle(
+                  fontSize: 100,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: decrement,
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    fixedSize: const Size(100, 100),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      side: const BorderSide(
+                        color: Color(0xff292c2e),
+                        width: 5,
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    "saiu",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
                     ),
                   ),
                 ),
-                child: const Text(
-                  "saiu",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                const SizedBox(
+                  width: 32,
                 ),
-              ),
-              const SizedBox(
-                width: 32,
-              ),
-              TextButton(
-                onPressed: increment,
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  // padding: const EdgeInsets.all(32),
-                  fixedSize: const Size(100, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    side: const BorderSide(
-                      color: Color(0xff292c2e),
-                      width: 5,
+                TextButton(
+                  onPressed: increment,
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    fixedSize: const Size(100, 100),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      side: const BorderSide(
+                        color: Color(0xff292c2e),
+                        width: 5,
+                      ),
                     ),
                   ),
-                ),
-                child: const Text(
-                  "entrou!",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
+                  child: const Text(
+                    "entrou!",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-              )
-            ],
-          ),
-        ],
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
